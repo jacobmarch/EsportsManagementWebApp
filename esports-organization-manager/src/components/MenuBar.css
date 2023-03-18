@@ -1,0 +1,17 @@
+.menu-bar {
+    display: flex;
+    gap: 1rem;
+    background-color: #282c34;
+    padding: 1rem;
+    justify-content: center;
+  }
+  
+  .menu-bar a {
+    color: white;
+    text-decoration: none;
+  }
+  
+  .menu-bar a:hover {
+    text-decoration: underline;
+  }
+  

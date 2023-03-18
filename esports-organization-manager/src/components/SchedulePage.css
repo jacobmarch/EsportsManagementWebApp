@@ -1,0 +1,74 @@
+.schedule-page {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #f5f5f5;
+  }
+  .schedule-page main {
+    padding: 1rem;
+  }
+  .schedule-page header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    background-color: #222;
+    color: #fff;
+  }
+  .schedule-page .rbc-calendar {
+    min-width: 90%;
+    margin: 0 auto;
+  }
+  .schedule-page header .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  .schedule-page header .app-name {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  .schedule-page header .app-name:hover {
+    text-decoration: underline;
+  }
+  
+  .schedule-page .menu-bar {
+    display: flex;
+    justify-content: center;
+    background-color: #007bff;
+    padding: 0.5rem 0;
+  }
+  
+  .schedule-page .menu-bar a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 1rem;
+    font-weight: bold;
+  }
+  
+  .schedule-page .menu-bar a:hover {
+    text-decoration: underline;
+  }
+  
+  .add-event-button {
+    position: fixed;
+    right: 1.5rem;
+    bottom: 1.5rem;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 4rem;
+    height: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .add-event-button:hover {
+    background-color: #0056b3;
+  }
+  

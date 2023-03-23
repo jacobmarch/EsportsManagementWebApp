@@ -1,43 +1,42 @@
 import React, { useState, useEffect } from 'react';
-import Header from './Header';
 import MenuBar from './MenuBar';
+import UpcomingEvents from './UpcomingEvents';
+import Teams from './Teams';
 import './LandingPage.css';
+import logo from '../assets/logo.png';
 
 function LandingPage() {
+  const [events, setEvents] = useState([]);
   const [teams, setTeams] = useState([]);
-  const [upcomingEvents, setUpcomingEvents] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:3000/api/teams')
-      .then((response) => response.json())
-      .then((data) => setTeams(data));
+    // Fetch events and teams data from your API here
+    const fetchEventsAndTeams = async () => {
+      try {
+        const eventsResponse = await fetch('/api/events');
+        const teamsResponse = await fetch('/api/teams');
+        const eventsData = await eventsResponse.json();
+        const teamsData = await teamsResponse.json();
+        setEvents(eventsData);
+        setTeams(teamsData);
+      } catch (error) {
+        console.error('Error fetching events and teams:', error);
+      }
+    };
 
-    fetch('http://localhost:3000/api/events')
-      .then((response) => response.json())
-      .then((data) => setUpcomingEvents(data));
+    fetchEventsAndTeams();
   }, []);
 
   return (
     <div className="landing-page">
-      <Header />
+      <header>
+        <img src={logo} alt="Logo" />
+        <h1>Esports Organization Manager</h1>
+      </header>
       <MenuBar />
       <div className="content">
-        <div className="upcoming-events">
-          <h2>Upcoming Events</h2>
-          <ul>
-            {upcomingEvents.map((event) => (
-              <li key={event.ID}>{event.name}</li>
-            ))}
-          </ul>
-        </div>
-        <div className="teams">
-          <h2>Teams</h2>
-          <ul>
-            {teams.map((team) => (
-              <li key={team.ID}>{team.name}</li>
-            ))}
-          </ul>
-        </div>
+        <UpcomingEvents events={events} />
+        <Teams teams={teams} />
       </div>
     </div>
   );

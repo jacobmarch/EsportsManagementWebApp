@@ -1,7 +1,7 @@
 .menu-bar {
     display: flex;
     gap: 1rem;
-    background-color: #282c34;
+    background-color: #407efa;
     padding: 1rem;
     justify-content: center;
   }
